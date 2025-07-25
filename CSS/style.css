@@ -1,0 +1,191 @@
+.form-container {
+    background-color: #b9e2f0; /* 水色 */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 20px auto;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;  /* ラベルと入力欄を両端に配置 */
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form-row label {
+    flex: 0 1 auto;  /* サイズ固定、幅は中身に合わせる */
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.form-row input[type="text"],
+.form-row input[type="email"],
+.form-row input[type="password"],
+.form-row select {
+    width: 250px;     /* 入力欄の幅は固定 */
+   /* text-align: left;  入力文字は左寄せ */
+}
+
+.form-name {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between; /* ←追加 */
+}
+
+.form-name span {
+    margin-right: 4px;
+    white-space: nowrap;
+}
+
+/* .name-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.name-field label {
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+*/
+.form-name input[type="text"] {
+    width: 150px; /* 姓・名のテキスト幅を短めに */
+} 
+
+.form-gender {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+
+.form-row-column {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.form-row-column > label {
+    width: 100px;
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.address-group {
+    display: flex;
+    flex-direction: column; /* 縦に積む */
+    flex: 1;
+}
+
+.address-field-inline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.address-field-inline label,
+.address-field-below label {
+    width: 100px; /* ←ここを揃える */
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.address-field-inline select {
+    width: 250px;
+}
+
+.address-field-below {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+/* .address-field-below label {
+    min-width: 70px;
+    white-space: nowrap;
+    margin-right: 10px;
+}
+ */
+.address-field-below input[type="text"] {
+    width: 250px;
+    margin-left: auto; /* 右に寄せる */
+}
+
+.button-confirm {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.button-confirm:hover {
+    background-color: #0056b3;
+}
+
+
+.confirm-container {
+    background-color: #b9e2f0; /* 水色 */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 20px auto;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.info-row label {
+    width: 120px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.button-area {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.button-confirm {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.button-confirm:hover {
+    background-color: #0056b3;
+}
+
+.button-back {
+    background-color: #ffffff;
+    color: #007bff;
+    padding: 10px 20px;
+    border: 2px solid #007bff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.button-back:hover {
+    background-color: #e6f0ff;
+}
