@@ -1,144 +1,147 @@
+/* 会員登録フォーム全体の枠 */
 .form-container {
-    background-color: #b9e2f0; /* 水色 */
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 500px;
-    margin: 20px auto;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    background-color: #b9e2f0; /* 水色背景 */
+    padding: 20px;             /* 内側余白 */
+    border-radius: 8px;        /* 角丸 */
+    max-width: 500px;          /* 最大横幅 */
+    margin: 20px auto;         /* 上下余白＋中央寄せ */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* うっすら影 */
 }
 
+/* form内の要素を縦並びに */
 .form-container form {
     display: flex;
     flex-direction: column;
 }
 
+/* タイトルの中央寄せと下余白 */
 h1 {
     text-align: center;
     margin-bottom: 20px;
 }
 
+/* ラベルと入力欄を横並びにして両端に配置 */
 .form-row {
     display: flex;
-    justify-content: space-between;  /* ラベルと入力欄を両端に配置 */
+    justify-content: space-between;  
     align-items: center;
     margin-bottom: 10px;
 }
 
+/* ラベルの幅は中身に合わせ、右に少し余白 */
 .form-row label {
-    flex: 0 1 auto;  /* サイズ固定、幅は中身に合わせる */
+    flex: 0 1 auto;  
     margin-right: 10px;
-    white-space: nowrap;
+    white-space: nowrap; /* 改行しない */
 }
 
+/* テキスト入力・メール・パスワード・セレクトの横幅固定 */
 .form-row input[type="text"],
 .form-row input[type="email"],
 .form-row input[type="password"],
 .form-row select {
-    width: 250px;     /* 入力欄の幅は固定 */
-   /* text-align: left;  入力文字は左寄せ */
+    width: 250px;
+    /* 入力文字は左寄せ（デフォルト） */
 }
 
+/* 氏名入力欄の横並び */
 .form-name {
     display: flex;
-    gap: 10px;
+    gap: 10px;           /* 要素間の隙間 */
     flex: 1;
     align-items: center;
-    justify-content: space-between; /* ←追加 */
+    justify-content: space-between; /* 左右に間隔を広げる */
 }
 
+/* 氏名の「姓」「名」ラベル間余白 */
 .form-name span {
     margin-right: 4px;
     white-space: nowrap;
 }
 
-/* .name-field {
-    display: flex;
-    flex-direction: column;
-}
-
-.name-field label {
-    font-size: 12px;
-    margin-bottom: 2px;
-}
-*/
+/* 氏名のテキストボックス幅は短め */
 .form-name input[type="text"] {
-    width: 150px; /* 姓・名のテキスト幅を短めに */
-} 
+    width: 150px; 
+}
 
+/* 性別ラジオボタンの横並びと間隔 */
 .form-gender {
     display: flex;
     gap: 20px;
     align-items: center;
 }
 
-
+/* 住所欄縦並びの大枠 */
 .form-row-column {
     display: flex;
     align-items: flex-start;
     margin-bottom: 10px;
 }
 
+/* 住所欄の左ラベル固定幅 */
 .form-row-column > label {
     width: 100px;
     margin-right: 10px;
     white-space: nowrap;
 }
 
+/* 住所の住所グループを縦並び */
 .address-group {
     display: flex;
-    flex-direction: column; /* 縦に積む */
+    flex-direction: column;
     flex: 1;
 }
 
+/* 都道府県セレクトとラベルを横並び */
 .address-field-inline {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
+/* 都道府県とそれ以降の住所ラベル幅を揃える */
 .address-field-inline label,
 .address-field-below label {
-    width: 100px; /* ←ここを揃える */
+    width: 100px; /* ラベル幅統一 */
     margin-right: 10px;
     white-space: nowrap;
 }
 
+/* 都道府県セレクト幅 */
 .address-field-inline select {
     width: 250px;
 }
 
+/* それ以降の住所入力欄の配置 */
 .address-field-below {
     display: flex;
     align-items: center;
     margin-top: 5px;
 }
 
-/* .address-field-below label {
-    min-width: 70px;
-    white-space: nowrap;
-    margin-right: 10px;
-}
- */
+/* それ以降の住所テキストボックス幅と右寄せ */
 .address-field-below input[type="text"] {
     width: 250px;
-    margin-left: auto; /* 右に寄せる */
+    margin-left: auto; /* 右揃え */
 }
 
+/* 確認画面へ進むボタンのスタイル */
 .button-confirm {
-    background-color: #007bff;
-    color: #ffffff;
+    background-color: #007bff; /* 青 */
+    color: #ffffff;            /* 白文字 */
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
+/* ボタンホバー時の濃い青 */
 .button-confirm:hover {
     background-color: #0056b3;
 }
 
-
+/* 確認画面のコンテナ（フォーム全体の枠） */
 .confirm-container {
-    background-color: #b9e2f0; /* 水色 */
+    background-color: #b9e2f0; /* 水色背景 */
     padding: 20px;
     border-radius: 8px;
     max-width: 500px;
@@ -146,24 +149,27 @@ h1 {
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
+/* 会員情報確認画面の情報行 */
 .info-row {
     display: flex;
     justify-content: space-between;
     margin: 10px 0;
 }
 
+/* ラベル幅と太字指定 */
 .info-row label {
     width: 120px;
     font-weight: bold;
     white-space: nowrap;
 }
 
+/* ボタン配置用の中央寄せエリア */
 .button-area {
     text-align: center;
     margin-top: 20px;
 }
 
-
+/* 登録完了ボタンと確認へ進むボタン共通 */
 .button-confirm {
     background-color: #007bff;
     color: #ffffff;
@@ -177,6 +183,7 @@ h1 {
     background-color: #0056b3;
 }
 
+/* 「前に戻る」ボタンの白地・青文字・青枠 */
 .button-back {
     background-color: #ffffff;
     color: #007bff;
@@ -186,6 +193,7 @@ h1 {
     cursor: pointer;
     font-size: 16px;
 }
+/* 「前に戻る」ホバー時は薄青背景 */
 .button-back:hover {
     background-color: #e6f0ff;
 }
