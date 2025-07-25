@@ -10,7 +10,7 @@ foreach($fields as $f) {
     <head>
     <meta charset="UTF-8">
     <title>会員情報確認画面</title>
-    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="/my-php/regist_system/css/style.css">
     </head>
     <body>
 

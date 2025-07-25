@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>会員登録フォーム</title>
-    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="/my-php/regist_system/css/style.css">
 </head>
 <body>
 

@@ -21,7 +21,7 @@ $password    = isset($_POST['password']) ? $_POST['password'] : '';
 <head>
     <meta charset="UTF-8">
     <title>会員登録完了</title>
-    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="/my-php/regist_system/css/style.css">
 </head>
 <body>
     <div class="confirm-container" style="text-align:center;">
