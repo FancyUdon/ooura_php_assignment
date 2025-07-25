@@ -9,8 +9,7 @@ $address_detail = isset($_POST['address_detail']) ? $_POST['address_detail'] : '
 $email       = isset($_POST['email']) ? $_POST['email'] : '';
 $password    = isset($_POST['password']) ? $_POST['password'] : '';
 
-/*     echo "<h1>登録が完了しました</h1>";
- */} else {
+    } else {
     echo "不正なアクセスです。";
     exit;
 }
