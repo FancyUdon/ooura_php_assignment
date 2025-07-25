@@ -28,16 +28,23 @@
                 <div class="form-row">
                     <label>氏名</label>
                     <div class="form-name">
-                        <span>姓</span><input type="text" name="last_name" required>
-                        <span>名</span><input type="text" name="first_name" required>
+                        <span>姓</span>
+                        <input type="text" name="last_name" value="<?= isset($_POST['last_name']) ? 
+                        htmlspecialchars($_POST['last_name'], ENT_QUOTES, 'UTF-8') : '' ?>" required>
+                        
+                        <span>名</span>
+                        <input type="text" name="first_name" value="<?= isset($_POST['first_name']) ? 
+                        htmlspecialchars($_POST['first_name'], ENT_QUOTES, 'UTF-8') : '' ?>" required>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <label>性別</label>
                     <div class="form-gender">
-                        <label><input type="radio" name="gender" value="男性" required>男性</label>
-                        <label><input type="radio" name="gender" value="女性">女性</label>
+                        <input type="radio" name="gender" value="男性" 
+                            <?= (isset($_POST['gender']) && $_POST['gender'] === '男性') ? 'checked' : '' ?> required>男性
+                        <input type="radio" name="gender" value="女性" 
+                            <?= (isset($_POST['gender']) && $_POST['gender'] === '女性') ? 'checked' : '' ?>>女性
                     </div>
                 </div>
 
@@ -49,13 +56,17 @@
                         <select name="prefecture" id="prefecture" required>
                             <option value="">選択してください</option>
                             <?php foreach ($prefectures as $pref): ?>
-                                <option value="<?= htmlspecialchars($pref, ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($pref, ENT_QUOTES, 'UTF-8') ?></option>
+                                <option value="<?= htmlspecialchars($pref, ENT_QUOTES, 'UTF-8') ?>"
+                                    <?= (isset($_POST['prefecture']) && $_POST['prefecture'] === $pref) ? 'selected' : '' ?>>
+                                    <?= htmlspecialchars($pref, ENT_QUOTES, 'UTF-8') ?>
+                                </option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="address-field-below">
                         <label for="address_detail">それ以降の住所</label>
-                        <input type="text" name="address_detail" id="address_detail" required>
+                        <input type="text" name="address_detail" value="<?= isset($_POST['address_detail']) ? 
+                            htmlspecialchars($_POST['address_detail'], ENT_QUOTES, 'UTF-8') : '' ?>" required>
                     </div>
                 </div>
             </div>
@@ -72,7 +83,7 @@
 
             <div class="form-row">
                 <label for="email">メールアドレス </label>
-                <input type="email" name="email" required>
+                <input type="email" name="email" value="<?= isset($_POST['email']) ? htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8') : '' ?>" required>
             </div>
 
 
