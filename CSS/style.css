@@ -47,10 +47,17 @@ h1 {
 /* 氏名入力欄の横並び */
 .form-name {
     display: flex;
-    gap: 10px;           /* 要素間の隙間 */
+    gap: 20px;           /* 要素間の隙間 */
     flex: 1;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between; /* 左右に間隔を広げる */
+}
+
+.form-name-field {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
 }
 
 /* 氏名の「姓」「名」ラベル間余白 */
@@ -196,4 +203,13 @@ h1 {
 /* 「前に戻る」ホバー時は薄青背景 */
 .button-back:hover {
     background-color: #e6f0ff;
+}
+
+/* エラー文 */
+.error {
+    color: red !important;
+    font-size: 18px !important;
+    background-color: yellow !important;
+    border: 1px solid red;
+    padding: 4px;
 }
