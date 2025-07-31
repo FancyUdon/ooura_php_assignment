@@ -11,7 +11,7 @@ unset($_SESSION['form_data'], $_SESSION['errors']); // 使い終わったら消�
 <head>
     <meta charset="UTF-8">
     <title>会員登録フォーム</title>
-    <link rel="stylesheet" href="/my-php/regist_system/css/style.css?v=1.2">
+    <link rel="stylesheet" href="/my-php/regist_system/css/style.css">
  <!-- <style>
         .error {
             color: red;
