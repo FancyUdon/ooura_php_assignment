@@ -11,7 +11,9 @@ unset($_SESSION['form_data'], $_SESSION['errors']); // 使い終わったら消�
 <head>
     <meta charset="UTF-8">
     <title>会員登録フォーム</title>
-    <link rel="stylesheet" href="/my-php/regist_system/css/style.css">
+<link rel="stylesheet" href="CSS/style.css">
+
+    <!-- <link rel="stylesheet" href="/my-php/regist_system/CSS/style.css"> -->
  <!-- <style>
         .error {
             color: red;
@@ -40,112 +42,124 @@ unset($_SESSION['form_data'], $_SESSION['errors']); // 使い終わったら消�
     ?>
 
 
-    <div class="form-container">
-        <h1>会員情報登録フォーム</h1>
-        <form action="register_confirm.php" method="post">
+<div class="form-container">
+    <h1>会員情報登録フォーム</h1>
+    <form action="register_confirm.php" method="post">
 
-                <!--名前入力欄-->
-                <div class="form-row">
-                    <label>氏名</label>
-                    <div class="form-name">
-                        <div class="form-name-field">
-                            <span>姓</span>
-                            <input type="text" name="last_name" 
-                                value="<?= htmlspecialchars($form_data['last_name'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
-                            <?php if (!empty($errors['last_name'])): ?>
-                                <p class="error"><?= $errors['last_name'] ?></p>
-                            <?php endif; ?>
-                        </div>
-                        
-                        <div class="form-name-field">
-                            <span>名</span>
-                            <input type="text" name="first_name" 
-                                value="<?= htmlspecialchars($form_data['first_name'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
-                            <?php if (!empty($errors['first_name'])): ?>
-                                <p class="error"><?= $errors['first_name'] ?></p>
-                            <?php endif; ?>
-                        </div>
+        <!--氏名-->
+        <div class="form-row">
+            <label>氏名</label>
+            <div class="form-name">
+                <div class="form-name-field">
+                    <span>姓</span>
+                    <div class="input-with-error">
+                        <input type="text" name="last_name" 
+                            value="<?= htmlspecialchars($form_data['last_name'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+                        <?php if (!empty($errors['last_name'])): ?>
+                            <p class="error"><?= $errors['last_name'] ?></p>
+                        <?php endif; ?>
                     </div>
                 </div>
-
-                <!-- 性別入力欄 -->
-                <div class="form-row">
-                    <label>性別</label>
-                    <div class="form-gender">
-                        <label><input type="radio" name="gender" value="男性"
-                            <?= (isset($form_data['gender']) && $form_data['gender'] === '男性') ? 'checked' : '' ?> >男性</label>
-                        <label><input type="radio" name="gender" value="女性"
-                            <?= (isset($form_data['gender']) && $form_data['gender'] === '女性') ? 'checked' : '' ?> >女性</label>
+                <div class="form-name-field">
+                    <span>名</span>
+                    <div class="input-with-error">
+                        <input type="text" name="first_name" 
+                            value="<?= htmlspecialchars($form_data['first_name'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+                        <?php if (!empty($errors['first_name'])): ?>
+                            <p class="error"><?= $errors['first_name'] ?></p>
+                        <?php endif; ?>
                     </div>
                 </div>
-                <?php if (!empty($errors['gender'])): ?>
-                    <p class="error"><?= $errors['gender'] ?></p>
+            </div>
+        </div>
+
+        <!--性別-->
+        <div class="form-row">
+            <label>性別</label>
+            <div class="form-gender">
+                <div class="input-with-error">
+                    <label><input type="radio" name="gender" value="男性"
+                        <?= (isset($form_data['gender']) && $form_data['gender'] === '男性') ? 'checked' : '' ?> >男性</label>
+                    <label><input type="radio" name="gender" value="女性"
+                        <?= (isset($form_data['gender']) && $form_data['gender'] === '女性') ? 'checked' : '' ?> >女性</label>
+                    <?php if (!empty($errors['gender'])): ?>
+                        <p class="error"><?= $errors['gender'] ?></p>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+
+        <!--住所-->
+        <div class="form-row-column">
+            <label>住所</label>
+            <div class="address-group">
+                <div class="address-field-inline">
+                    <label for="prefecture">都道府県</label>
+                    <div class="input-with-error">
+                        <select name="prefecture">
+                            <option value="">選択してください</option>
+                            <?php foreach ($prefectures as $pref): ?>
+                                <option value="<?= htmlspecialchars($pref, ENT_QUOTES, 'UTF-8') ?>"
+                                    <?= (isset($form_data['prefecture']) && $form_data['prefecture'] === $pref) ? 'selected' : '' ?>>
+                                    <?= htmlspecialchars($pref, ENT_QUOTES, 'UTF-8') ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                        <?php if (!empty($errors['prefecture'])): ?>
+                            <p class="error"><?= $errors['prefecture'] ?></p>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <div class="address-field-below">
+                    <label for="address_detail">それ以降の住所</label>
+                    <div class="input-with-error right-align">
+                        <input type="text" name="address_detail" 
+                            value="<?= htmlspecialchars($form_data['address_detail'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+                        <?php if (!empty($errors['address_detail'])): ?>
+                            <p class="error"><?= $errors['address_detail'] ?></p>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--パスワード-->
+        <div class="form-row">
+            <label>パスワード</label>
+            <div class="input-with-error">
+                <input type="password" name="password">
+                <?php if (!empty($errors['password'])): ?>
+                    <p class="error"><?= $errors['password'] ?></p>
                 <?php endif; ?>
-
-                <!--住所入力欄-->
-                <div class="form-row-column">
-                    <label>住所</label>
-                    <div class="address-group">
-                        <!-- 都道府県のセレクトボックス -->
-                        <div class="address-field-inline">
-                            <label for="prefecture">都道府県</label>
-                            <select name="prefecture">
-                                <option value="">選択してください</option>
-                                <?php foreach ($prefectures as $pref): ?>
-                                    <option value="<?= htmlspecialchars($pref, ENT_QUOTES, 'UTF-8') ?>"
-                                        <?= (isset($form_data['prefecture']) && $form_data['prefecture'] === $pref) ? 'selected' : '' ?>>
-                                        <?= htmlspecialchars($pref, ENT_QUOTES, 'UTF-8') ?>
-                                    </option>
-                                <?php endforeach; ?>
-                            </select>
-                            <?php if (!empty($errors['prefecture'])): ?>
-                                <p class="error"><?= $errors['prefecture'] ?></p>
-                            <?php endif; ?>
-                        </div>
-                        <!-- それ以降の住所のテキストボックス -->
-                        <div class="address-field-below">
-                            <label for="address_detail">それ以降の住所</label>
-                            <input type="text" name="address_detail" 
-                                value="<?= htmlspecialchars($form_data['address_detail'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
-                            <?php if (!empty($errors['address_detail'])): ?>
-                                <p class="error"><?= $errors['address_detail'] ?></p>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                </div>
-
-            <!-- パスワード入力欄 -->
-            <div class="form-row">
-            <label for="password">パスワード</label>
-            <input type="password" name="password">
-            <?php if (!empty($errors['password'])): ?>
-                <p class="error"><?= $errors['password'] ?></p>
-            <?php endif; ?>
             </div>
+        </div>
 
-            <!-- パスワード確認入力欄 -->
-            <div class="form-row">
-                <label for="password">パスワード(確認) </label>
-            <input type="password" name="password_confirm">
-            <?php if (!empty($errors['password_confirm'])): ?>
-                <p class="error"><?= $errors['password_confirm'] ?></p>
-            <?php endif; ?>
+        <!--パスワード確認-->
+        <div class="form-row">
+            <label>パスワード(確認)</label>
+            <div class="input-with-error">
+                <input type="password" name="password_confirm">
+                <?php if (!empty($errors['password_confirm'])): ?>
+                    <p class="error"><?= $errors['password_confirm'] ?></p>
+                <?php endif; ?>
             </div>
+        </div>
 
-            <!-- メールアドレス入力欄 -->
-            <div class="form-row">
-                <label for="email">メールアドレス </label>
+        <!--メール-->
+        <div class="form-row">
+            <label>メールアドレス</label>
+            <div class="input-with-error">
                 <input type="email" name="email" 
                     value="<?= htmlspecialchars($form_data['email'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
                 <?php if (!empty($errors['email'])): ?>
                     <p class="error"><?= $errors['email'] ?></p>
                 <?php endif; ?>
             </div>
+        </div>
 
-            <!-- 確認画面へ進むボタン -->
-            <div style="text-align:center; margin-top:20px;">
+        <!--確認画面へ-->
+        <div style="text-align:center; margin-top:20px;">
             <button type="submit" class="button-confirm">確認画面へ</button>
-        </form>
-    </div>
-</body>
-</html>
+        </div>
+    </form>
+</div>
